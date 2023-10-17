@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" For better vue.js editing
 Plug 'posva/vim-vue'
 au BufNewFile,BufRead *.html,*.js,*.vue set tabstop=2
 au BufNewFile,BufRead *.html,*.js,*.vue set softtabstop=2
@@ -18,6 +19,10 @@ au BufNewFile,BufRead *.html,*.js,*.vue set shiftwidth=2
 au BufNewFile,BufRead *.html,*.js,*.vue set expandtab
 au BufNewFile,BufRead *.html,*.js,*.vue set autoindent
 au BufNewFile,BufRead *.html,*.js,*.vue set fileformat=unix
+
+" GitHub Copilot
+" Note: GitHub Copilot needs vim of 9.0 version or newer
+Plug 'github/copilot.vim'
 
 " Put corp specific styles in separate private file
 if !filereadable(glob('~/.vim/corp-styles.vim'))
