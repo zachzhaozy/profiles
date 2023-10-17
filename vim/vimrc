@@ -8,6 +8,17 @@ endif
 set nocompatible
 call plug#begin('~/.vim/plugged')
 
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'posva/vim-vue'
+au BufNewFile,BufRead *.html,*.js,*.vue set tabstop=2
+au BufNewFile,BufRead *.html,*.js,*.vue set softtabstop=2
+au BufNewFile,BufRead *.html,*.js,*.vue set shiftwidth=2
+au BufNewFile,BufRead *.html,*.js,*.vue set expandtab
+au BufNewFile,BufRead *.html,*.js,*.vue set autoindent
+au BufNewFile,BufRead *.html,*.js,*.vue set fileformat=unix
+
 " Put corp specific styles in separate private file
 if !filereadable(glob('~/.vim/corp-styles.vim'))
     Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -27,7 +38,7 @@ Plug 'moll/vim-node', {'for': 'javascript'}
 Plug 'Valloric/MatchTagAlways', {'for': 'html'}
 Plug 'tpope/vim-commentary'             " gcc, gc<textobj> to toggle comments
 Plug 'tpope/vim-endwise'
-Plug 'ymattw/vim-fold-paragraph'        " My own folding preference
+Plug 'ymattw/vim-fold-paragraph'        " Matt's own folding preference
 
 Plug 'elzr/vim-json', {'for': 'json'}
 let g:vim_json_syntax_conceal = 0       " Do not hide quotes
@@ -138,7 +149,7 @@ autocmd! BufEnter Gemfile,Berksfile,Thorfile,Vagrantfile setlocal filetype=ruby
 " File type tab size
 "
 autocmd! FileType html,css,ruby,eruby,yaml,json,javascript,jade
-            \ setlocal expandtab softtabstop=2 shiftwidth=2
+            \ setlocal expandtab softtabstop=4 shiftwidth=4
 autocmd! FileType make setlocal noexpandtab shiftwidth=8
 autocmd! FileType go setlocal noexpandtab shiftwidth=8 nolist
 autocmd! FileType gitcommit setlocal textwidth=72 spell
